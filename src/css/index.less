@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 12px;
+    color: #fff;
+}
+
+.bg {
+    height: 100%;
+    width: 100%;
+    filter: blur(30px);
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    .img-box {
+        width: 150px;
+        height: 150px;
+        border-radius:50%;
+        margin: 0 auto;
+        margin-top: 10%;
+        overflow: hidden;
+        .img-main img {
+            width: 100%;
+        }
+    }
+    .info-box {
+        margin-top: 8%;
+        text-align: center;
+        height:12%;
+        .tit {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .musicname,
+        .name {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 5px;
+        }
+    }
+    .pro {
+        margin:20% 0;
+        display: flex;
+        .cur-time,
+        .all-time {
+            width: 70px;
+            text-align: center;
+            line-height: 30px;
+        }
+        .pro-wrapper {
+            flex-grow: 1;
+            height: 30px;
+            position: relative;
+            padding-right: 4px;
+            .pro-bottom {
+                position: absolute;
+                top: 50%;
+                width: 100%;
+                height: 1px;
+                background: rgba(255, 255, 255, 0.3);
+            }
+            .pro-top {
+                position: absolute;
+                background: #19be95;
+                width: 100%;
+                top: 50%;
+                height: 1px;
+                width:0;
+                .pro-dot {
+                    width: 40px;
+                    height: 40px;
+                    position: absolute;
+                    top: -20px;
+                    right: -19px;
+                }
+                .pro-dot::after {
+                    display: block;
+                    content: '';
+                    position: absolute;
+                    width: 9px;
+                    height: 9px;
+                    border-radius: 50%;
+                    top: 20px;
+                    left: 16px;
+                    margin-top: -4px;
+                    background: #fff;
+                }
+            }
+        }
+    }
+    .con-main {
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        z-index: 10;
+        .control {
+            display: flex;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            li {
+                width: 20%;
+                text-align: center;
+                height: 60px;
+                line-height: 60px;
+                font-size: 20px;
+            }
+        }
+    }
+    .menu-wra {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        display: none;
+        z-index: 1000;
+        .menu-box {
+            position: absolute;
+            width: 100%;
+            left: 0;
+            bottom: 0;
+            z-index: 120;
+            overflow: hidden;
+            background: #3b3b3b;
+            transition: all ease 0.5s;
+            transform: translateY(100%);
+            .main {
+                position: relative;
+                z-index: 2;
+                line-height: 50px;
+                .tit {
+                    text-align: center;
+                    font-size: 16px;
+                    border-bottom: 1px solid #707070;
+                }
+                .vol-wrapper {
+                    border-bottom: 1px solid #494949;
+                    font-size: 20px;
+                    padding: 0 15px;
+                    padding-right:20px;
+                    display: flex;
+                    position: relative;
+                    .icon {
+                        width: 30px;
+                        position: relative;
+                        top: -1px;
+                    }
+                    .vol-box {
+                        flex-grow: 1;
+                        position: relative;
+                        height: 20px;
+                        transform: translate(0,15px);
+                        .vol-bottom {
+                            width: 100%;
+                            height: 2px;
+                            background: rgba(255, 255, 255, 0.2);
+                            position: absolute;
+                            top: 50%;
+                            margin-top: -1px;
+                            border-radius:2px;
+                        }
+                        .vol-top {
+                            width:100%;
+                            height: 2px;
+                            position: absolute;
+                            top: calc(50% - 1px);
+                            background: #19be95;
+                            border-radius:2px;
+                        }
+                        .vol-dot {
+                            width: 30px;
+                            height: 30px;
+                            position: absolute;
+                            top: 50%;
+                            right: -15px;
+                            margin-top: -15px;
+                        }
+                        .vol-dot::after {
+                            width: 12px;
+                            height: 12px;
+                            position: absolute;
+                            top: 50%;
+                            left: 50%;
+                            border-radius: 50%;
+                            transform: translate(-50%, -50%);
+                            background: #fff;
+                            display: block;
+                            content: '';
+                        }
+                    }
+                }
+                .m-list {
+                    height: 152px;
+                    overflow-y: scroll;
+                    li {
+                        border-bottom: 1px solid #494949;
+                        padding: 0 15px;
+                        font-size:14px;
+                    }
+                    li:last-child{
+                        border-bottom:none !important;
+                    }
+                    .touch {
+                        background: #333333;
+                    }
+                    .active span {
+                        color: #19be95;
+                    }
+                }
+                .close-btn {
+                    text-align: center;
+                    font-size: 16px;
+                    border-top: 1px solid #707070;
+                }
+                .close-btn.touch {
+                    background: #333333;
+                }
+            }
+        }
+        .menu-box.active{
+            background: #fff;
+            color:#3d3d3d;
+            .main{
+                .tit {
+                    border-bottom: 1px solid #e2e2e2;
+                }
+                .vol-wrapper {
+                    border-bottom: 1px solid #f0f0f0;
+                    .icon{
+                        color:#bdbdbd;
+                    }
+                    .vol-bottom{
+                        background:#eeeeee;
+                    }
+                    .vol-top{
+                        background:#19be95;
+                    }
+                    .vol-dot::after{
+                        background:#19be95;
+                    }
+                    
+                } 
+                .m-list{
+                    li{
+                        border-bottom: 1px solid #f0f0f0; 
+                    } 
+                    .touch {
+                        background: #f0f0f0;
+                    }
+                }  
+                .close-btn {
+                    border-top: 1px solid #e2e2e2;
+                    color:#32abf1;
+                }
+                .close-btn.touch {
+                    background: #f0f0f0;
+                }   
+            }
+            
+            
+        }
+        .show {
+            transform: translateY(0);
+        }
+    }
+}
